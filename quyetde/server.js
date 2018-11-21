@@ -59,31 +59,27 @@ app.post("/answer",(req,res) => {
     var voteYes = 0;
     questionModel.findById(questionId,(err,question) => {
         if (vote == "yes") {
-            voteYes = ++question.yes;
+            voteYes = question.yes + 1;
             voteNo = question.no;
         }
         else {
-            voteNo = ++question.no;
+            voteNo = question.no + 1;
             voteYes = question.yes;
         };
-    }),
-    questionModel.updateOne(
-        {_id: questionId},
-        {$set:{
-            yes: voteYes,
-            no: voteNo
-        }},
-        (err,raw) => {
-            if(err) console.log(err)
-            else {
-                console.log("update vote success");
-            } 
-        }
-    );
-    // if(vote == "yes") questions[questionId].yes++
-    // else questions[questionId].no++;
-    // fs.writeFileSync('./questions.json',JSON.stringify(questions));
-    // res.redirect("http://localhost:1447/question/"+questionId);
+        questionModel.updateOne(
+            {_id: questionId},
+            {$set:{
+                yes: voteYes,
+                no: voteNo,
+            }},
+            (err,raw) => {
+                if(err) console.log(err)
+                else {
+                    console.log("update data success!");
+                }; 
+            }
+        );
+    });
 });
 
 app.get("/", (req,res) => {
