@@ -5,5 +5,13 @@
     text-align: center;
 }
 #voteAndOtherQuestion{
-    text-align: center;
+    text-align: right;
+}
+#yes{
+    display: inline-block;
+    text-align: left;
+}
+#no{
+    display: inline-block;
+    text-align: right;
 }
