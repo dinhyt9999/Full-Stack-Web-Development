@@ -1,10 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const fs = require("fs");
 const mongoose = require("mongoose");
 const app = express();
 
 const questionModel = require("./models/questionModel");
+
+const questionRouter = require("./router/questionRouter");
+
+const askRouter = require("./router/askRouter");
 
 mongoose.connect(
     "mongodb://localhost/quyetde", 
@@ -19,17 +22,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static("view"));
 
-app.get("/ask", (req,res) => {
-    res.sendFile(__dirname + "/view/ask.html");
-});
-
-app.post("/ask", (req,res) => {
-    questionModel.create({content: req.body.question}, (err, questionCreated) => {
-        if(err) console.log(err)
-        else 
-            res.redirect("/");
-    });
-});
+app.use("/ask",askRouter);
 
 app.get("/randomquestion", (req,res) => {
     questionModel.count({},(err,count) => {
@@ -44,42 +37,18 @@ app.get("/randomquestion", (req,res) => {
     });
 }); 
 
-app.get("/question/:questionId", (req,res) => {
-    questionModel.findById(req.params.questionId,(err,question) => {
-        if(err) console.log(err)
-        else
-            res.json({ questions: question });
-    });
-});
+app.use("/question",questionRouter);
 
 app.post("/answer",(req,res) => {
     const questionId = req.body.questionId;
     const vote = req.body.vote;
-    var voteNo = 0;
-    var voteYes = 0;
-    questionModel.findById(questionId,(err,question) => {
-        if (vote == "yes") {
-            voteYes = question.yes + 1;
-            voteNo = question.no;
-        }
-        else {
-            voteNo = question.no + 1;
-            voteYes = question.yes;
-        };
-        questionModel.updateOne(
-            {_id: questionId},
-            {$set:{
-                yes: voteYes,
-                no: voteNo,
-            }},
-            (err,raw) => {
-                if(err) console.log(err)
-                else {
-                    console.log("update data success!");
-                }; 
-            }
-        );
-    });
+    questionModel.findByIdAndUpdate(
+        questionId, 
+        { $inc : { [vote] : 1 } }, 
+        (err,questionUpdated) => {
+            if (err) console.log(err)
+            else console.log("update data success!");
+        });
 });
 
 app.get("/", (req,res) => {

@@ -28,7 +28,6 @@ $("#no, #yes").on('click',function(){
         },
         error: function(err) {
             console.log("die!");
-            console.log(data.questions.id);
         }
     });
 });
@@ -36,11 +35,4 @@ $("#no, #yes").on('click',function(){
 $("#viewQuestionInfo").on("click",function(){
     $("#questionInfo").css('display', 'block');
     $("#answer").css('display', 'none');
-});
-$("#other-question").on("click",function(){
-    window.location.href ="/";
-});
-
-$("#ask").on("click",function(){
-    window.location.href ="/ask"
 });

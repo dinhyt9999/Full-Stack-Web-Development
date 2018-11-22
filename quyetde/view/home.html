@@ -6,23 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <button id="ask">Hỏi nhanh</button>
-    <button>Đáp gọn</button>
-    <h1 id="question">Question</h1>
-    <div id="answer">
-        <button id="no">No</button>
-        <button id="yes">Yes</button>
-        <button id="viewQuestionInfo">Vote</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Quyết đê!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+                      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/ask">Hỏi nhanh <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Đáp gọn</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1 id="question" class="mt-5 mb-5">Question</h1>
+    <div class="container">
+        <div id="answer">
+            <button class="btn btn-primary" id="no">No</button>
+            <button class="btn btn-danger" id="yes">Yes</button>
+        </div>
     </div>
-    <button id="other-question">Other Question</button>
+    <div class="container" id="voteAndOtherQuestion">
+        <button class="btn btn-default" id="viewQuestionInfo">Vote</button>
+        <button class="btn btn-default" id="other-question">Other Question</button>
+    </div>
     <div id="questionInfo">
         <div id="vote">Vote:</div>
         <div id="voteYes">Vote Yes:</div>
         <div id="voteNo">Vote No:</div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="/main.js"></script>
 </body>
 </html>

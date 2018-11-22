@@ -1,3 +1,9 @@
 #questionInfo{
     display: none;
 }
+#question{
+    text-align: center;
+}
+#voteAndOtherQuestion{
+    text-align: center;
+}
