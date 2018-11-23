@@ -1,17 +1,35 @@
 #questionInfo{
     display: none;
+    position: relative;
 }
 #question{
     text-align: center;
 }
 #voteAndOtherQuestion{
-    text-align: right;
+    top:3px;
+    text-align: center;
 }
 #yes{
-    display: inline-block;
-    text-align: left;
+    left: 10%;
 }
 #no{
-    display: inline-block;
-    text-align: right;
+    position: absolute;
+    right: 10%;
+}
+#vote{
+    text-align: center;
+    font-size: 20px;
+}
+#voteYes{
+    padding: 7px 0;
+    background: #d9534f;
+    position: absolute;
+    text-align: center;
+}
+#voteNo{
+    background: #337ab7;
+    padding: 7px 0;
+    position: absolute;
+    text-align: center;
+    right: 0%;
 }

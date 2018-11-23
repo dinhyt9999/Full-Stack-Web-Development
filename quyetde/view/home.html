@@ -30,24 +30,18 @@
         </div>
     </nav>
     <h1 id="question" class="mt-5 mb-5">Question</h1>
-    <div class="container">
-        <div id="answer">
-            <div id="yes">
-                <button class="btn btn-danger">Yes</button>
-            </div>
-            <div id="no">
-                <button class="btn btn-primary">No</button>
-            </div>
-        </div>
+    <div class="container" id="answer">
+        <button class="btn btn-danger" id="yes">Yes</button>
+        <button class="btn btn-primary" id="no">No</button>
     </div>
-    <div class="container" id="voteAndOtherQuestion">
-        <button class="btn btn-default" id="viewQuestionInfo">Vote</button>
-        <button class="btn btn-default" id="other-question">Other Question</button>
-    </div>
-    <div id="questionInfo">
+    <div class="container" id="questionInfo">
         <div id="vote">Vote:</div>
-        <div id="voteYes">Vote Yes:</div>
-        <div id="voteNo">Vote No:</div>
+        <span id="voteYes">Vote Yes:</span>
+        <span id="voteNo">Vote No:</span>
+    </div>
+    <div class="container mt-5" id="voteAndOtherQuestion">
+        <button class="btn btn-success" id="viewQuestionInfo">Vote</button>
+        <button class="btn btn-success" id="other-question">Other Question</button>
     </div>
     <script src="/main.js"></script>
 </body>
