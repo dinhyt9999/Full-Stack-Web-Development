@@ -45,9 +45,11 @@ app.post("/answer",(req,res) => {
     questionModel.findByIdAndUpdate(
         questionId, 
         { $inc : { [vote] : 1 } }, 
-        (err,questionUpdated) => {
+        {new: true},
+        (err,questions) => {
             if (err) console.log(err)
             else console.log("update data success!");
+            res.send({questions})
         });
 });
 

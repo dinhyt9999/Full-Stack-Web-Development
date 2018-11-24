@@ -1,14 +1,17 @@
 const express = require("express");
+const path = require("path");
 const questionRouter = express.Router();
 
 const questionModel = require("../models/questionModel");
 
 questionRouter.get("/:questionId", (req,res) => {
-    questionModel.findById(req.params.questionId,(err,question) => {
-        if(err) console.log(err)
-        else
-            res.json({ questions: question });
-    });
+    res.sendFile(path.resolve(__dirname,"../view/voteInfo.html"))
+});
+questionRouter.post("/:questionId", (req,res) => {
+    let questionId = req.body.questionId;
+    questionModel.findById(questionId,(err,question) => {
+        res.send({question});
+    })
 });
 
 module.exports = questionRouter;
