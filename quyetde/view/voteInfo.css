@@ -1,0 +1,26 @@
+#questionInfo{
+    position: relative;
+}
+#question{
+    text-align: center;
+}
+#vote{
+    text-align: center;
+    font-size: 20px;
+}
+#voteYes{
+    padding: 7px 0;
+    background: #d9534f;
+    position: absolute;
+    text-align: center;
+}
+#voteNo{
+    background: #337ab7;
+    padding: 7px 0;
+    position: absolute;
+    text-align: center;
+    right: 0%;
+}
+#other-question{
+    text-align: center;
+}
