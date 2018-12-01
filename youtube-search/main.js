@@ -60,6 +60,10 @@ $(document).ready(function(){
                         }
                         j=k;
                         k+=count;
+                    } else {
+                        $(".result").remove();
+                        $("#result-list").append(`
+                            <span class="result">Không có kết quả tìm kiếm</span>`);
                     } 
                 },
                 error:function(err){
