@@ -37,6 +37,7 @@ $(document).ready(function(){
     //     event.preventDefault();
     $("#keyword").on("input",function(){
         setTimeout(function(){
+            if($("#keyword").val() != ""){
             $.ajax({
                 url:`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${$("#keyword").val()}&type=video&key=AIzaSyA9gQZ-oYomFypZN7PsupZJtOfQqA6Q3qw`,
                 type:"get",
@@ -70,6 +71,7 @@ $(document).ready(function(){
                     console.log(err);
                 }
             });
+            }
         },1000);
     });
     $(window).scroll(function(){
