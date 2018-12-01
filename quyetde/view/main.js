@@ -1,5 +1,5 @@
 $.ajax({
-    url:"http://localhost:1447/randomquestion",
+    url:"/randomquestion",
     type:"GET",
     success:function(data){
         $("#question").text(data.questions.content);
@@ -12,7 +12,7 @@ $.ajax({
 
 $("#no, #yes").on('click',function(){
     $.ajax({
-        url:"http://localhost:1447/answer",
+        url:"/answer",
         type:"post",
         data: {
             questionId: $("#question").attr("data-question"),

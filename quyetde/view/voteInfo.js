@@ -1,7 +1,7 @@
 var questionId = window.location.pathname.split("/")[2];
 console.log(questionId);
 $.ajax({
-    url:"http://localhost:1447/question/"+questionId,
+    url:"/question/"+questionId,
     type:"post",
     data: {
         questionId
