@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
-const singModel = require('../../model/singModel');
+const songModel = require('./songModel');
 
 const SongRouter = express.Router();
 
-SongRouter.post((req,res) => {
+SongRouter.post("/",(req,res) => {
     const emotion = req.body.emotion;
     const genere = req.body.genere;
     songModel.find({emotion: emotion, genere:genere}, (err, songFound) => {

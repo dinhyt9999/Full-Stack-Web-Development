@@ -5,5 +5,7 @@ const BackgroundRouter = require("./api/background/background");
 
 const RootRouter = express.Router();
 
-RootRouter.use('./api/song',SongRouter);
-RootRouter.use('./api/background',BackgroundRouter);
+RootRouter.use('/api/song',SongRouter);
+RootRouter.use('/api/background',BackgroundRouter);
+RootRouter.use('/api/admin',AdminRouter);
+RootRouter.use('/api/link',LinkRouter);

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const SingSchema = new Schema({
+const SongSchema = new Schema({
     name: { type: String, required: true },
     singer: { type: String, required: true },
     emotion: { type: String, required: true },
@@ -11,4 +11,4 @@ const SingSchema = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model("Sing", SingSchema);
+module.exports = mongoose.model("Song", SongSchema);
