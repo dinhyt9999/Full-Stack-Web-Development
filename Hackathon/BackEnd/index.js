@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const RootRouter = require("./router/rootRouter");
+const RootRouter = require("./rootRouter");
 
 const app = express();
 
